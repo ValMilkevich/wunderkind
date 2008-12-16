@@ -1,0 +1,13 @@
+<p>
+  <b>Parent:</b>
+  <%=h @folder.parent_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @folder.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_folder_path(@folder) %> |
+<%= link_to 'Back', folders_path %>

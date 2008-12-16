@@ -1,0 +1,26 @@
+<h1>Listing rates</h1>
+
+<table>
+  <tr>
+    <th>Ratable</th>
+    <th>Ratable type</th>
+    <th>Value</th>
+    <th>Notes</th>
+  </tr>
+
+<% for rate in @rates %>
+  <tr>
+    <td><%=h rate.ratable_id %></td>
+    <td><%=h rate.ratable_type %></td>
+    <td><%=h rate.value %></td>
+    <td><%=h rate.notes %></td>
+    <td><%= link_to 'Show', rate %></td>
+    <td><%= link_to 'Edit', edit_rate_path(rate) %></td>
+    <td><%= link_to 'Destroy', rate, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New rate', new_rate_path %>

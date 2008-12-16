@@ -1,0 +1,32 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Folder</th>
+    <th>Author</th>
+    <th>Subj</th>
+    <th>Body</th>
+    <th>Description</th>
+    <th>Location</th>
+  </tr>
+
+<% for item in @items %>
+  <tr>
+    <td><%=h item.category_id %></td>
+    <td><%=h item.folder_id %></td>
+    <td><%=h item.author_id %></td>
+    <td><%=h item.subj %></td>
+    <td><%=h item.body %></td>
+    <td><%=h item.description %></td>
+    <td><%=h item.location %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New item', new_item_path %>

@@ -1,0 +1,23 @@
+<p>
+  <b>Linkable:</b>
+  <%=h @link.linkable_id %>
+</p>
+
+<p>
+  <b>Linkable type:</b>
+  <%=h @link.linkable_type %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%=h @link.source %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @link.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  linkable_id: 1
+  linkable_type: 1
+  source: MyString
+  name: MyString
+
+two:
+  linkable_id: 1
+  linkable_type: 1
+  source: MyString
+  name: MyString

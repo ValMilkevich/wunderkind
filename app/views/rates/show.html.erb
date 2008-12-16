@@ -1,0 +1,23 @@
+<p>
+  <b>Ratable:</b>
+  <%=h @rate.ratable_id %>
+</p>
+
+<p>
+  <b>Ratable type:</b>
+  <%=h @rate.ratable_type %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @rate.value %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @rate.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_rate_path(@rate) %> |
+<%= link_to 'Back', rates_path %>

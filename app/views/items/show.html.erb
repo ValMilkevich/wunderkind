@@ -1,0 +1,38 @@
+<p>
+  <b>Category:</b>
+  <%=h @item.category_id %>
+</p>
+
+<p>
+  <b>Folder:</b>
+  <%=h @item.folder_id %>
+</p>
+
+<p>
+  <b>Author:</b>
+  <%=h @item.author_id %>
+</p>
+
+<p>
+  <b>Subj:</b>
+  <%=h @item.subj %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @item.body %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @item.description %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%=h @item.location %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

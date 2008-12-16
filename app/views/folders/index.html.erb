@@ -1,0 +1,22 @@
+<h1>Listing folders</h1>
+
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Name</th>
+  </tr>
+
+<% for folder in @folders %>
+  <tr>
+    <td><%=h folder.parent_id %></td>
+    <td><%=h folder.name %></td>
+    <td><%= link_to 'Show', folder %></td>
+    <td><%= link_to 'Edit', edit_folder_path(folder) %></td>
+    <td><%= link_to 'Destroy', folder, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New folder', new_folder_path %>
