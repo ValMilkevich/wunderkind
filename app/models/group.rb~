@@ -1,0 +1,4 @@
+class Group < ActiveRecord::Base
+  has_many :subscribed_users, :through=>:memberships
+  has_many :memberships, :class_name=>'Group', :foreign_key=>'group_id'
+end

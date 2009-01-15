@@ -4,7 +4,7 @@ describe Rate do
   before(:each) do
     @valid_attributes = {
       :ratable_id => 1,
-      :ratable_type => "value for ratable_type",
+      :ratable_type => "ClassName",
       :value => 1,
       :notes => "value for notes"
     }

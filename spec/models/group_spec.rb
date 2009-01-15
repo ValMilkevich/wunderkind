@@ -11,6 +11,7 @@ describe Group do
   
   it "should have subscribed users" do
     @group.save
+    @group.subscribed_users = User.create(:full_name=>'Valentine Milkevich')
     @group.subscribed_users.should be_instance_of(Array)
   end
 

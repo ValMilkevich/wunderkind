@@ -1,0 +1,7 @@
+class Add categoryId to tags < ActiveRecord::Migration
+  def self.up
+  end
+
+  def self.down
+  end
+end

@@ -19,14 +19,9 @@ describe User do
     @user.favorites.should be_instance_of(Array)
   end
   
-  it "can be in a group through subscription" do
+  it "can be in a group through  memberships" do
     @user.save
     @user.subscribed_groups.should be_instance_of(Array)
-  end
-  
-  it "can have posted comments" do
-    @user.save
-    @user.posted_comments.should be_instance_of(Array)
   end
   
   it "can have created_groups" do

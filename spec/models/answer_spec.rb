@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Answer do
   before(:each) do
-    @answer = Post.new(valid_hash)
+    @answer = Answer.new(valid_hash)
     
     @post = mock_model(Post)
   end
@@ -14,15 +14,14 @@ describe Answer do
   it "should have post" do
     @answer.save
     @answer.post = @post
-    @answer.should be_instance_of(Post)
+    @answer.should be_instance_of(Answer)
     @answer.should eql(@post)
   end
   
   private
   def valid_hash
     {
-      :post_id => 1,
       :body => "value for body"
     }
   end
-end
+end 

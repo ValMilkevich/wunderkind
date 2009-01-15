@@ -1,23 +1,26 @@
 development:
   adapter: postgresql
-  username: postgres
+  username: valentine
   encoding: utf8
   database: wunderkind_development
-  password: Q1dfi154n
+  password: valentine
+  host: /var/run/postgresql/
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
 # Do not set this db to the same as development or production.
 test:
   adapter: postgresql
-  username: postgres
+  username: valentine
   encoding: utf8
   database: wunderkind_test
-  password: Q1dfi154n
+  password: valentine
+  host: /var/run/postgresql/
 
 production:
   adapter: postgresql
-  username: postgres
+  username: valentine
   encoding: utf8
   database: wunderkind_production
-  password: Q1dfi154n
+  password: valentine
+  host: /var/run/postgresql/

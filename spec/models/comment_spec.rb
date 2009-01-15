@@ -15,7 +15,7 @@ describe Comment do
     @comment.author = @author
     
     @comment.author.should be_instance_of(User)
-    @comment.author.sholud eql(@author)
+    @comment.author.should eql(@author)
   end
   
   private

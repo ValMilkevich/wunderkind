@@ -17,6 +17,8 @@ describe Post do
     @category = mock_model(Category)
     @post.category = @category
     
+    @rate = Rate.new()
+    @post.rate = @rate
   end
 
   it "should create a new instance given valid attributes" do    
@@ -52,11 +54,11 @@ describe Post do
   end
   
   it "can have answers" do
-    @post.links.should be_instance_of(Array)
+    @post.answers.should be_instance_of(Array)
   end
   
   it "can have rate" do
-    @post.rate.should be_instance_of(Array)
+    @post.rate.should be_instance_of(Rate)
   end
   
   
