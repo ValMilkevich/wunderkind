@@ -15,7 +15,7 @@ describe Answer do
     @answer.save
     @answer.post = @post
     @answer.should be_instance_of(Answer)
-    @answer.should eql(@post)
+    @answer.post.should eql(@post)
   end
   
   private

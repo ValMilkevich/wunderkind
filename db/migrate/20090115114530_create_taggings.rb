@@ -12,3 +12,4 @@ class CreateTaggings < ActiveRecord::Migration
     drop_table :taggings
   end
 end
+
