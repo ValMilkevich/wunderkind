@@ -27,8 +27,12 @@ describe Folder do
     @folder.save
     @folder.children.should be_instance_of(Array)
   end
-  
-  
+
+  it "should have posts" do
+    @folder.save
+    @folder.posts.should be_instance_of(Array)
+  end
+
   private
   def valid_hash
     {

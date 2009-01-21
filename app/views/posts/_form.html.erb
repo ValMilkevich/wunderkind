@@ -1,0 +1,48 @@
+
+<% form_for(@post) do |f| %>
+  <%= f.error_messages %>
+
+  <%= f.hidden_field :id %>
+
+  <% current_user = User.find :first %>
+  <% current_user||=User.create(:full_name=>'Valentine Milkevich') %>
+  <p>
+    <%= f.label :author %><br />
+    <%= f.select :author_id, [[current_user.full_name, current_user.id]] %>
+  </p>
+  <p>
+    <%= f.label :folder %><br />
+    <%= f.select :folder_id, @folders.collect{|folder| [folder.name, folder.id]} %>
+  </p>
+  <p>
+    <%= f.label :category %><br />
+    <%= f.select :category_id, @categories.collect{|cat|[cat.name, cat.id]}, :multiple=>true %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.select :status_id, Status.find(:all).collect{|st| [st.name, st.id]} %>
+  </p>
+  <p>
+    <%= f.label :review %><br />
+    <%= f.text_area :review, :rows=>3 %>
+  </p>
+  <p>
+    <%= f.label :subject %><br />
+    <%= f.text_field :subject, :size=>35 %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.label :image %><br />
+    <%= file_column_field "post", "image", :size => 15 %>
+  </p>
+  <p>
+    <%= f.label :views %><br />
+    <%= f.text_field :views, :size=>7 %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>

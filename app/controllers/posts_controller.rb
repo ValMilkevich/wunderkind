@@ -1,8 +1,24 @@
 class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
+
+  before_filter :setup
+  private
+  def setup
+    @folder = Folder.find params[:folder_id] if(params[:folder_id])    
+  rescue
+    render :layout=>'exceptions'
+  end
+  public
+
   def index
-    @posts = Post.find(:all)
+    if @folder
+      @posts = @folder.posts.find(:all, :order=>:created_at)
+    elsif @category
+      @posts = @category.posts.find(:all, :order=>:created_at)
+    else
+      @posts = Post.find(:all, :order=>:created_at)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,7 +40,15 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
+    @folders= Folder.find :all
+    @categories=Category.find :all
+
+    if @folder
+      @post = Post.new(:folder_id=>@folder)
+    else
+      @post = Post.new
+    end
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,6 +58,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @folders= Folder.find :all
+    @categories=Category.find :all
+    
     @post = Post.find(params[:id])
   end
 

@@ -34,5 +34,11 @@
 </table>
 
 <br />
-
-<%= link_to 'New post', new_post_path %>
+<% if @folder %>
+  <% path = new_folder_post_path(@folder) %>
+<% elsif @category %>
+  <% path = new_category_post_path(@category)  %>
+<% else %>
+  <% path = new_post_path %>
+<% end %>
+<%= link_to 'New post', path %>

@@ -11,7 +11,7 @@ describe Answer do
     Answer.create!(valid_hash)
   end
   
-  it "should have post" do
+  it "should belong to post" do
     @answer.save
     @answer.post = @post
     @answer.should be_instance_of(Answer)

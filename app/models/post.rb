@@ -32,7 +32,13 @@ class Post < ActiveRecord::Base
   validates_presence_of :category
   validates_presence_of :body
   
-  
+  file_column :image, :magick => {
+    :versions =>{ 
+      :big => {:crop => "1:1", :size => "200x200", :name => "big"},
+      :thumb => {:crop=>"1:1",:size=>'36x36',:name=>'thumb'}
+    }
+  }
+
   def viewed!
     views_count+=1
     save

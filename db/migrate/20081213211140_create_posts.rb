@@ -12,7 +12,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string    :image
       
       t.integer   :comments_count, :default=>0
-      t.integer   :views_count, :default=>0
+      t.integer   :views, :default=>0
       
       t.timestamps
     end

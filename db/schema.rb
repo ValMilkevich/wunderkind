@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
     t.text     "body"
     t.string   "image"
     t.integer  "comments_count", :default => 0
-    t.integer  "views_count",    :default => 0
+    t.integer  "views",          :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -114,14 +114,6 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
 
   create_table "statuses", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "taggables", :force => true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

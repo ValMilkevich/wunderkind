@@ -1,34 +1,42 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :items
-
   map.resources :rates
-
   map.resources :memberships
-
-  map.resources :groups
-
+  map.resources :groups do |g|
+    g.resources :users
+    g.resources :memberships
+  end
   map.resources :answers
-
   map.resources :taggables
-
   map.resources :tags
-
   map.resources :comments
-
   map.resources :links
-
   map.resources :favorites
-
-  map.resources :categories
-
-  map.resources :folders
-
+  map.resources :categories do |c|
+    c.resources :posts do |post|
+      post.resources :comments
+    end
+    c.resources :folders
+    c.resources :items
+  end
+  map.resources :folders do |f|
+    f.resources :posts do |p|
+      p.resources :comments
+    end
+  end
   map.resources :statuses
-
-  map.resources :users
-
-  
-  map.resources :posts
+  map.resources :users do |user|
+    user.resources :favorites
+    user.resources :groups
+  end
+  map.resources :posts do |post|
+    post.resources :comments
+    post.resources :links
+    post.resources :tags
+    post.resources :answers
+    post.resources :rates
+  end
   
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -71,4 +79,7 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
+  map.connect '', :controller=>'posts', :action=>'index'
+
 end

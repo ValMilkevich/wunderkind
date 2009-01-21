@@ -28,7 +28,7 @@ describe User do
     @user.save
     @user.created_groups.should be_instance_of(Array)
   end
-  
+
   def valid_post_hash
     {
       :full_name => "value for full_name"

@@ -4,6 +4,9 @@ describe Favorite do
   before(:each) do
     @favorite = Favorite.new(valid_hash)
     @owner = mock_model(User)
+    @post = mock_model(Post)
+    @comment = mock_model(Comment)
+    @itme = mock_model(Item)
   end
 
   it "should create a new instance given valid attributes" do
@@ -16,7 +19,22 @@ describe Favorite do
     @favorite.user.should be_instance_of(User)
     @favorite.user.should eql(@owner)
   end
-  
+
+  it "should be able to contain comments" do
+    @favorite.favoritable = @comments
+    @favorite.favoritable.should eql(@comments)
+  end
+
+  it "should be able to contain posts" do
+    @favorite.favoritable = @post
+    @favorite.favoritable.should eql(@post)
+  end
+
+  it "should be able to contain items" do
+    @favorite.favoritable = @items
+    @favorite.favoritable.should eql(@items)
+  end
+
   private
   def valid_hash
     {
