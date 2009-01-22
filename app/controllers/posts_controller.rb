@@ -3,9 +3,15 @@ class PostsController < ApplicationController
   # GET /posts.xml
 
   before_filter :setup
+  
   private
   def setup
-    @folder = Folder.find params[:folder_id] if(params[:folder_id])    
+    @folder = Folder.find params[:folder_id] if(!params[:folder_id].blank?)
+    @category=Category.find params[:category_id] if(!params[:category_id].blank?)
+    @folders= Folder.find :all
+    @categories=Category.find :all
+    @statuses = Status.find :all
+
   rescue
     render :layout=>'exceptions'
   end
@@ -24,6 +30,8 @@ class PostsController < ApplicationController
       format.html # index.html.erb
       format.xml  { render :xml => @posts }
     end
+  rescue Exception=>e
+    render :layout=>'exceptions', :text=>e.message
   end
 
   # GET /posts/1
@@ -35,32 +43,29 @@ class PostsController < ApplicationController
       format.html # show.html.erb
       format.xml  { render :xml => @post }
     end
+  rescue Exception=>e
+    render :layout=>'exceptions', :text=>e.message
   end
 
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @folders= Folder.find :all
-    @categories=Category.find :all
-
     if @folder
       @post = Post.new(:folder_id=>@folder)
     else
       @post = Post.new
-    end
-    
+    end    
 
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
     end
+  rescue Exception=>e
+    render :layout=>'exceptions', :text=>e.message
   end
 
   # GET /posts/1/edit
   def edit
-    @folders= Folder.find :all
-    @categories=Category.find :all
-    
     @post = Post.find(params[:id])
   end
 
@@ -79,6 +84,8 @@ class PostsController < ApplicationController
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
+  rescue Exception=>e
+    render :layout=>'exceptions', :text=>e.message
   end
 
   # PUT /posts/1
@@ -96,6 +103,8 @@ class PostsController < ApplicationController
         format.xml  { render :xml => @post.errors, :status => :unprocessable_entity }
       end
     end
+  rescue Exception=>e
+    render :layout=>'exceptions', :text=>e.message
   end
 
   # DELETE /posts/1
@@ -108,5 +117,8 @@ class PostsController < ApplicationController
       format.html { redirect_to(posts_url) }
       format.xml  { head :ok }
     end
+  rescue Exception=>e
+    render :layout=>'exceptions', :text=>e.message
   end
+
 end

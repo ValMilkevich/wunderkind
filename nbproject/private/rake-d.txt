@@ -39,9 +39,11 @@ doc\:clobber_rails=Remove rdoc products
 doc\:guides=Generate Rails guides
 doc\:plugins=Generate documentation for all installed plugins
 doc\:plugins\:acts_as_tree=Generate documentation for the acts_as_tree plugin
+doc\:plugins\:paperclip=Generate documentation for the paperclip plugin
 doc\:plugins\:rspec=Generate documentation for the rspec plugin
 doc\:plugins\:rspec-rails=Generate documentation for the rspec-rails plugin
 doc\:plugins\:rspec_autotest=Generate documentation for the rspec_autotest plugin
+doc\:plugins\:thoughtbot-paperclip=Generate documentation for the thoughtbot-paperclip plugin
 doc\:rails=Build the rails HTML Files
 doc\:reapp=Force a rebuild of the RDOC files
 doc\:rerails=Force a rebuild of the RDOC files
@@ -60,6 +62,10 @@ notes\:custom=Enumerate a custom annotation, specify with ANNOTATION=WTFHAX
 notes\:fixme=Enumerate all FIXME annotations
 notes\:optimize=Enumerate all OPTIMIZE annotations
 notes\:todo=Enumerate all TODO annotations
+paperclip\:clean=Cleans out invalid attachments. Useful after you've added new validations.
+paperclip\:refresh=Refreshes both metadata and thumbnails.
+paperclip\:refresh\:metadata=Regenerates content_type/size metadata for a given CLASS (and optional ATTACHMENT).
+paperclip\:refresh\:thumbnails=Regenerates thumbnails for a given CLASS (and optional ATTACHMENT).
 rails\:freeze\:edge=Lock to latest Edge Rails, for a specific release use RELEASE=1.2.0
 rails\:freeze\:gems=Lock this application to the current gems (by unpacking them into vendor/rails)
 rails\:unfreeze=Unlock this application from freeze of gems or edge and return to a fluid use of system gems

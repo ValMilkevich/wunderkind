@@ -1,0 +1,17 @@
+<div class="mini">
+  <span class="col">
+    <%= post.subject %> &nbsp;
+  </span>
+  <span class="col">
+    <%= post.status.name %> &nbsp;
+  </span>
+  <span class="col">
+    <%= format_date post.created_at %>
+  </span>
+  <span class="controls">
+    <%= link_to 'Show', post %>
+    <%= link_to 'Edit', edit_post_path(post) %>
+    <%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %>
+  </span>
+</div>
+

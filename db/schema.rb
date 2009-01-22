@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090115114930) do
+ActiveRecord::Schema.define(:version => 20090121121617) do
 
   create_table "answers", :force => true do |t|
     t.integer  "post_id"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
   create_table "comments", :force => true do |t|
     t.integer  "author_id"
     t.integer  "commentable_id"
-    t.integer  "commentable_type"
+    t.string   "commentable_type"
     t.string   "sujb"
     t.string   "body"
     t.datetime "created_at"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
   create_table "favorites", :force => true do |t|
     t.integer  "user_id"
     t.integer  "favoritable_id"
-    t.integer  "favoritable_type"
+    t.string   "favoritable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
 
   create_table "links", :force => true do |t|
     t.integer  "linkable_id"
-    t.integer  "linkable_type"
+    t.string   "linkable_type"
     t.string   "source"
     t.string   "name"
     t.datetime "created_at"
@@ -96,11 +96,14 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
     t.text     "review"
     t.string   "subject"
     t.text     "body"
-    t.string   "image"
-    t.integer  "comments_count", :default => 0
-    t.integer  "views",          :default => 0
+    t.integer  "comments_count",     :default => 0
+    t.integer  "views",              :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "rates", :force => true do |t|
@@ -114,6 +117,14 @@ ActiveRecord::Schema.define(:version => 20090115114930) do
 
   create_table "statuses", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggables", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

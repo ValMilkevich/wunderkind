@@ -1,0 +1,21 @@
+/* 
+    Document   : application
+    Created on : 22-Jan-2009, 12:46:47
+    Author     : valentine
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+.mini{clear:both}
+.header{font-weight:900;}
+.mini .col{float:left;width:120px;}
+.mini .controls{float:left;width:200px;}

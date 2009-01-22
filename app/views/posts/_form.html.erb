@@ -1,5 +1,5 @@
 
-<% form_for(@post) do |f| %>
+<% form_for(@post, :html=>{:multipart=>true}) do |f| %>
   <%= f.error_messages %>
 
   <%= f.hidden_field :id %>
@@ -20,7 +20,7 @@
   </p>
   <p>
     <%= f.label :status %><br />
-    <%= f.select :status_id, Status.find(:all).collect{|st| [st.name, st.id]} %>
+    <%= f.select :status_id, @statuses.collect{|st| [st.name, st.id]} %>
   </p>
   <p>
     <%= f.label :review %><br />
@@ -36,7 +36,7 @@
   </p>
   <p>
     <%= f.label :image %><br />
-    <%= file_column_field "post", "image", :size => 15 %>
+    <%= file_field "post", "image", :size => 15 %>
   </p>
   <p>
     <%= f.label :views %><br />

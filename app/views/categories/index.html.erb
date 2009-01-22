@@ -1,21 +1,14 @@
 <h1>Listing categories</h1>
 
-<table>
-  <tr>
-    <th>Parent</th>
-    <th>Name</th>
-  </tr>
-
+<div class="mini header">
+    <span class="col">Parent</span>
+    <span class="col">Name</span>
+    <span class="controls">Controls</span>
+</div>
 <% for category in @categories %>
-  <tr>
-    <td><%=h category.parent_id %></td>
-    <td><%=h category.name %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+      <%= render :partial=>'mini', :locals=>{:category=>category} %>
 <% end %>
-</table>
+
 
 <br />
 

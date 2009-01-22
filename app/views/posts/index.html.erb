@@ -1,37 +1,11 @@
 <h1>Listing posts</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Author</th>
-    <th>Folder</th>
-    <th>Category</th>
-    <th>Status</th>
-    <th>Review</th>
-    <th>Subject</th>
-    <th>Body</th>
-    <th>Image</th>
-    <th>Views</th>
-  </tr>
+
 
 <% for post in @posts %>
-  <tr>
-    <td><%=h post.id %></td>
-    <td><%=h post.author_id %></td>
-    <td><%=h post.folder_id %></td>
-    <td><%=h post.category_id %></td>
-    <td><%=h post.status_id %></td>
-    <td><%=h post.review %></td>
-    <td><%=h post.subject %></td>
-    <td><%=h post.body %></td>
-    <td><%=h post.image %></td>
-    <td><%=h post.views %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <%= render :partial=>'mini', :locals=>{:post=>post} %>
 <% end %>
-</table>
+
 
 <br />
 <% if @folder %>

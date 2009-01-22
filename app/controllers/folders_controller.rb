@@ -3,6 +3,7 @@ class FoldersController < ApplicationController
   # GET /folders.xml
   def index
     @folders = Folder.find(:all)
+    @categories = Category.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -24,6 +25,9 @@ class FoldersController < ApplicationController
   # GET /folders/new
   # GET /folders/new.xml
   def new
+    @folders = Folder.find(:all)
+    @categories = Category.find(:all)
+
     @folder = Folder.new
 
     respond_to do |format|
@@ -35,6 +39,9 @@ class FoldersController < ApplicationController
   # GET /folders/1/edit
   def edit
     @folder = Folder.find(params[:id])
+    @folders = Folder.find(:all)
+    @categories = Category.find(:all)
+    
   end
 
   # POST /folders

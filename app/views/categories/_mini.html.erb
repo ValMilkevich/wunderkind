@@ -1,0 +1,9 @@
+<div class="mini" style="clear:both">
+    <span class="col" style="float:left;width:120px"> <%=h category.parent.name if category.parent%> &nbsp;</span>
+    <span class="col" style="float:left;width:120px"> <%=h category.name %></span>
+    <span class="controls" style="float:left">
+    <%= link_to 'Show', category %>
+    <%= link_to 'Edit', edit_category_path(category) %>
+    <%= link_to 'Destroy', category, :confirm => 'Are you sure?', :method => :delete %>
+    </span>
+</div>
